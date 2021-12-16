@@ -14,16 +14,7 @@ const TodoForm = (props) => {
     inputRef.current.focus();
   });
 
-  const completeTodo = (id) => {
-    let updatedTodos = todos.map( todo => {
-      if(todo.id === id) {
-        todo.completed = !todo.completed
-      }
-      return todo
-    })
-    setTodos(updatedTodos)
-  }
-
+  
   const handleSubmit = e => {
     e.preventDefault()
     console.log(input)
@@ -35,6 +26,23 @@ const TodoForm = (props) => {
   const handleChange = e => {
     setInput(e.target.value)
   }
+  
+  const completeTodo = (id) => {
+    let updatedTodos = todos.map( todo => {
+      if(todo.id === id) {
+        todo.completed = !todo.completed
+      }
+      return todo
+    })
+    setTodos(updatedTodos)
+  }
+
+  const filterTodos = (mode) => {
+    if(mode === "ALL") return todos
+    if(mode === "COMPLETED") return todos.filter(e => e.completed)
+    if(mode === "UNCOMPLETED") return todos.filter(e => !e.completed)
+  }
+  
 
   return (
     <Grid item className="todoForm_root">
@@ -51,7 +59,10 @@ const TodoForm = (props) => {
         </div>
         {
           todos.length 
-            ? <TodoList todos={todos} completeTodo={completeTodo}/> 
+            ? <TodoList 
+                completeTodo={completeTodo} 
+                filterTodos={filterTodos}
+              /> 
             : null
         }
         <div className="buttonContainer">
