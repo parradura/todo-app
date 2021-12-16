@@ -18,9 +18,11 @@ const TodoForm = (props) => {
   const handleSubmit = e => {
     e.preventDefault()
     console.log(input)
-    setTodos([...todos, {id: index, text: input, completed: false}])
-    setIndex(index + 1)
-    setInput("")
+    if(input !== "") {
+      setTodos([...todos, {id: index, text: input, completed: false}])
+      setIndex(index + 1)
+      setInput("")
+    }
   }
 
   const handleChange = e => {
@@ -35,6 +37,12 @@ const TodoForm = (props) => {
       return todo
     })
     setTodos(updatedTodos)
+  }
+  
+  const deleteTodo = (id) => {
+    console.log("REMOVING TODO: ", id)
+    const removeArr = [...todos].filter(todo => todo.id !== id)
+    setTodos(removeArr)
   }
 
   const filterTodos = (mode) => {
@@ -60,13 +68,14 @@ const TodoForm = (props) => {
         {
           todos.length 
             ? <TodoList 
-                completeTodo={completeTodo} 
                 filterTodos={filterTodos}
+                completeTodo={completeTodo} 
+                deleteTodo={deleteTodo}
               /> 
             : null
         }
         <div className="buttonContainer">
-          <button type="submit">Agregar</button>
+          <button type="submit" className="submitButton">Agregar</button>
         </div>
       </form>
     </Grid>

@@ -55,7 +55,7 @@ const SelectMode = ({mode, setMode}) => {
 }
 
 
-const TodoList = ({ completeTodo, filterTodos }) => {
+const TodoList = ({ filterTodos, completeTodo, deleteTodo }) => {
 
   const [mode, setMode] = useState("ALL")
 
@@ -70,6 +70,7 @@ const TodoList = ({ completeTodo, filterTodos }) => {
           todo={todo} 
           key={todo.id} 
           completeTodo={completeTodo}
+          deleteTodo={deleteTodo}
         />
       ))}
     </div>

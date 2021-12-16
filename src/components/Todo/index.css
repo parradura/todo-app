@@ -1,5 +1,16 @@
 .todo_root {
   display: flex;
+  flex: 1;
   flex-direction: row;
   align-items: center;
+  width: auto;
+}
+
+.deleteButton {
+  margin-left: auto;
+  background-color: #fff;
+  color:royalblue;
+  border: none;
+  font-weight: 600;
+  font-size: 12px;
 }
