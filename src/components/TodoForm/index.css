@@ -1,0 +1,35 @@
+.todoForm_root {
+    display: flex;
+    flex: 1;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonContainer {
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+button {
+    background-color: #111;
+    border-radius: 30px;
+    color: #eee;
+    font-weight: bold;
+    font-size: large;
+    padding: 15px;
+    width: 100%;
+}

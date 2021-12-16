@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import TodoForm from './components/TodoForm'
+import { Grid } from '@mui/material'
+import './index.css'
 
-function App() {
+const App = props => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='root'>
+      <Grid container xs={12} sm={10} md={8} lg={6} xl={6} className="app_root">
+        <TodoForm/>
+      </Grid>
     </div>
   );
 }
